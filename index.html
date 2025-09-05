@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mukesh's Portfolio</title>
+    <!-- Use Inter font from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000; /* Set a dark base color for the body */
+            color: #c9d1d9;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        /* Mouse light effect container */
+        #mouse-light {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 20%, rgba(0, 0, 0, 0) 50%);
+        }
+
+        /* Custom CSS for fade-in animation */
+        .fade-in-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            transition-delay: 0.2s; /* Add a slight delay for staggered effect */
+        }
+        .fade-in-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Style for the typing effect in the hero section */
+        .typing-text::after {
+            content: '|';
+            animation: blink-caret 1s step-end infinite;
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: white; }
+        }
+        /* Custom scrollbar styling for a cleaner look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #161b22;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #30363d;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #494949;
+        }
+        /* Frosted Glass Effect */
+        .glass-effect {
+            backdrop-filter: blur(12px);
+            background-color: rgba(30, 41, 59, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200">
+    <!-- Mouse Light Effect -->
+    <div id="mouse-light"></div>
+
+    <!-- Fixed Navbar -->
+    <nav class="sticky top-0 z-50 bg-gray-900/70 backdrop-blur-lg shadow-lg">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#home" class="text-xl font-bold text-blue-400 hover:text-blue-300 transition duration-300">Mukesh</a>
+            <div class="space-x-4 md:space-x-8">
+                <a href="#summary" class="hover:text-blue-400 transition duration-300">Summary</a>
+                <a href="#experience" class="hover:text-blue-400 transition duration-300">Experience</a>
+                <a href="#projects" class="hover:text-blue-400 transition duration-300">Projects</a>
+                <a href="#skills" class="hover:text-blue-400 transition duration-300">Skills</a>
+                <a href="#contact" class="hover:text-blue-400 transition duration-300">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="min-h-screen flex items-center justify-center text-center p-8 bg-gray-900">
+        <div class="max-w-4xl mx-auto glass-effect p-8 rounded-xl shadow-2xl">
+            <h1 class="text-4xl sm:text-5xl lg:text-7xl font-bold text-gray-100 mb-4 fade-in-on-scroll">
+                Hi, I'm Mukesh
+            </h1>
+            <p class="text-lg sm:text-xl lg:text-2xl text-gray-300 typing-text fade-in-on-scroll" style="--tw-text-opacity: 0.8; animation-delay: 1s;">
+                A passionate Senior Android Developer.
+            </p>
+            <div class="mt-8">
+                <a href="#contact" class="inline-block bg-blue-500 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-blue-600 transition-all duration-300 transform hover:scale-105 fade-in-on-scroll" style="animation-delay: 1.5s;">Get in Touch</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Professional Summary Section -->
+    <section id="summary" class="py-20 px-4 md:px-8 bg-gray-900">
+        <div class="container mx-auto max-w-5xl">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-blue-400 fade-in-on-scroll">Professional Summary</h2>
+            <div class="glass-effect p-6 rounded-2xl shadow-xl fade-in-on-scroll">
+                <p class="text-lg text-gray-300 leading-relaxed">
+                    Android Developer with 4 years of experience. Proficient in Java and Kotlin, with extensive knowledge of Android SDK, coroutines, Jetpack components, and modern architectural patterns such as MVVM.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Experience Section -->
+    <section id="experience" class="py-20 px-4 md:px-8">
+        <div class="container mx-auto max-w-5xl">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-blue-400 fade-in-on-scroll">Work Experience</h2>
+            
+            <!-- Novis River Card -->
+            <div class="glass-effect p-6 rounded-2xl shadow-xl mb-8 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl fade-in-on-scroll">
+                <div class="md:flex md:justify-between items-center mb-4">
+                    <h3 class="text-2xl font-semibold text-gray-100">Android Developer</h3>
+                    <p class="text-sm text-gray-400 md:text-right mt-2 md:mt-0">Jan 2025 - Present</p>
+                </div>
+                <div class="md:flex md:justify-between items-center mb-4">
+                    <p class="text-lg text-gray-300">NOVIS RIVER PVT LTD</p>
+                    <p class="text-sm text-gray-400 md:text-right mt-2 md:mt-0">New Delhi</p>
+                </div>
+                <ul class="list-disc list-inside space-y-2 text-gray-300">
+                    <li>Implemented file handling and PDF editing, including digital signature functionality.</li>
+                    <li>Developed real-time chat features for one-to-one and group messaging with secure synchronization.</li>
+                    <li>Integrated internationalization and localization for global audience support.</li>
+                    <li>Optimized app size and performance using Dynamic Feature Modules for on-demand ML-Kit downloads.</li>
+                    <li>Designed robust error handling mechanisms to improve stability and user experience.</li>
+                    <li>Integrated Google ML-Kit for real-time translation, smart replies, and text summarization.</li>
+                    <li>Handled media uploads, compression, and caching for optimal performance.</li>
+                </ul>
+            </div>
+
+            <!-- Infosys Card -->
+            <div class="glass-effect p-6 rounded-2xl shadow-xl transform transition-all duration-300 hover:scale-105 hover:shadow-2xl fade-in-on-scroll">
+                <div class="md:flex md:justify-between items-center mb-4">
+                    <h3 class="text-2xl font-semibold text-gray-100">Senior Android Developer</h3>
+                    <p class="text-sm text-gray-400 md:text-right mt-2 md:mt-0">Nov 2021 - Dec 2024</p>
+                </div>
+                <div class="md:flex md:justify-between items-center mb-4">
+                    <p class="text-lg text-gray-300">Infosys India Limited</p>
+                    <p class="text-sm text-gray-400 md:text-right mt-2 md:mt-0">Gurgaon, Haryana</p>
+                </div>
+                <ul class="list-disc list-inside space-y-2 text-gray-300">
+                    <li>Optimized UI/UX, leading to a 15% increase in user engagement.</li>
+                    <li>Integrated Retrofit for seamless API calls, reducing network failures by 15%.</li>
+                    <li>Migrated from SQLite to Room DB, decreasing data-related crashes by 40%.</li>
+                    <li>Adopted MVVM architecture, reducing bug resolution time by 50%.</li>
+                    <li>Utilized LiveData and ViewModel for improved UI stability and responsiveness.</li>
+                    <li>Implemented memory management best practices to decrease memory leaks.</li>
+                    <li>Collaborated with cross-functional teams to define, design, and ship new features.</li>
+                    <li>Utilized Agile methodologies and version control with Git and Jira for efficient project management.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-4 md:px-8 bg-gray-900">
+        <div class="container mx-auto max-w-5xl">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-blue-400 fade-in-on-scroll">Projects</h2>
+            
+            <!-- PDFly Project Card -->
+            <div class="glass-effect p-6 rounded-2xl shadow-xl mb-8 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl fade-in-on-scroll">
+                <h3 class="text-2xl font-semibold text-gray-100 mb-4">PDFly (Personal Project)</h3>
+                <ul class="list-disc list-inside space-y-2 text-gray-300">
+                    <li>A lightweight PDF editor for drawing, signing, and adding text to PDFs.</li>
+                    <li>Implemented undo/redo functionality for seamless editing.</li>
+                    <li>Developed features to process and import signatures.</li>
+                    <li>Utilized native Android components in Java.</li>
+                </ul>
+            </div>
+
+            <!-- QR Code Scanner Card -->
+            <div class="glass-effect p-6 rounded-2xl shadow-xl transform transition-all duration-300 hover:scale-105 hover:shadow-2xl fade-in-on-scroll">
+                <h3 class="text-2xl font-semibold text-gray-100 mb-4">Android QR Code Scanner App</h3>
+                <ul class="list-disc list-inside space-y-2 text-gray-300">
+                    <li>Developed an Android app for effortless QR code scanning.</li>
+                    <li>Implemented offline functionality using SQLite to save scan results locally.</li>
+                    <li>Integrated a share feature to send results via various apps.</li>
+                    <li>Utilized OkHttp to reduce network response time by 20%.</li>
+                    <li>Technologies: ZXing, SQLite, Java, Kotlin, Broadcast Receivers.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 px-4 md:px-8">
+        <div class="container mx-auto max-w-5xl">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-blue-400 fade-in-on-scroll">Skills</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-center">
+
+                <!-- Programming Languages -->
+                <div class="glass-effect p-6 rounded-xl shadow-xl transform transition-all duration-300 hover:scale-105 hover:shadow-2xl fade-in-on-scroll">
+                    <h4 class="text-xl font-semibold text-blue-300 mb-2">Programming Languages</h4>
+                    <p class="text-lg font-medium">Java, Kotlin</p>
+                </div>
+                
+                <!-- Architectures -->
+                <div class="glass-effect p-6 rounded-xl shadow-xl transform transition-all duration-300 hover:scale-105 hover:shadow-2xl fade-in-on-scroll">
+                    <h4 class="text-xl font-semibold text-blue-300 mb-2">Architectures</h4>
+                    <p class="text-lg font-medium">MVVM, Clean Architecture</p>
+                </div>
+
+                <!-- Mobile Development -->
+                <div class="glass-effect p-6 rounded-xl shadow-xl transform transition-all duration-300 hover:scale-105 hover:shadow-2xl fade-in-on-scroll">
+                    <h4 class="text-xl font-semibold text-blue-300 mb-2">Mobile Development</h4>
+                    <p class="text-lg font-medium">Android SDK, Jetpack Components, Room, Retrofit, Data Binding, Material Design</p>
+                </div>
+
+                <!-- Backend-as-a-Service -->
+                <div class="glass-effect p-6 rounded-xl shadow-xl transform transition-all duration-300 hover:scale-105 hover:shadow-2xl fade-in-on-scroll">
+                    <h4 class="text-xl font-semibold text-blue-300 mb-2">Backend-as-a-Service</h4>
+                    <p class="text-lg font-medium">Firebase</p>
+                </div>
+
+                <!-- Tools -->
+                <div class="glass-effect p-6 rounded-xl shadow-xl transform transition-all duration-300 hover:scale-105 hover:shadow-2xl fade-in-on-scroll">
+                    <h4 class="text-xl font-semibold text-blue-300 mb-2">Tools</h4>
+                    <p class="text-lg font-medium">Android Studio, VS Code, Git, CI/CD, Jira</p>
+                </div>
+
+                <!-- Other -->
+                <div class="glass-effect p-6 rounded-xl shadow-xl transform transition-all duration-300 hover:scale-105 hover:shadow-2xl fade-in-on-scroll">
+                    <h4 class="text-xl font-semibold text-blue-300 mb-2">Other</h4>
+                    <p class="text-lg font-medium">RESTful APIs, JSON, XML, Third-Party Libraries</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Achievements Section -->
+    <section id="education" class="py-20 px-4 md:px-8 bg-gray-900">
+        <div class="container mx-auto max-w-5xl">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-blue-400 fade-in-on-scroll">Education & Achievements</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-center">
+                <!-- Education Card -->
+                <div class="glass-effect p-6 rounded-xl shadow-xl transform transition-all duration-300 hover:scale-105 hover:shadow-2xl fade-in-on-scroll">
+                    <h4 class="text-xl font-semibold text-blue-300 mb-2">Education</h4>
+                    <p class="text-lg font-medium">B.Tech in Electronics & Communication Engineering</p>
+                    <p class="text-sm text-gray-400">CDLSIET, HARYANA | 2017-2021</p>
+                </div>
+                <!-- Achievements Card -->
+                <div class="glass-effect p-6 rounded-xl shadow-xl transform transition-all duration-300 hover:scale-105 hover:shadow-2xl fade-in-on-scroll">
+                    <h4 class="text-xl font-semibold text-blue-300 mb-2">Achievement</h4>
+                    <p class="text-lg font-medium">Infosys Certified Android Developer</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4 md:px-8">
+        <div class="container mx-auto max-w-xl text-center">
+            <h2 class="text-3xl sm:text-4xl font-bold mb-8 text-blue-400 fade-in-on-scroll">Contact & Social</h2>
+            <div class="space-y-4 text-lg">
+                <p class="fade-in-on-scroll"><span class="font-bold text-gray-300">Email:</span> <a href="mailto:mukeshsagar919@gmail.com" class="text-blue-300 hover:underline">mukeshsagar919@gmail.com</a></p>
+                <p class="fade-in-on-scroll"><span class="font-bold text-gray-300">Phone:</span> +91 9671583057</p>
+                <p class="fade-in-on-scroll"><span class="font-bold text-gray-300">LinkedIn:</span> <a href="https://www.linkedin.com/in/mukesh-sagar-109426207" class="text-blue-300 hover:underline" target="_blank">mukesh-sagar-109426207</a></p>
+                <p class="fade-in-on-scroll"><span class="font-bold text-gray-300">GitHub:</span> <a href="https://github.com/2080" class="text-blue-300 hover:underline" target="_blank">github.com/2080</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center py-6 text-gray-500 text-sm">
+        <p>Built with ❤️ and Tailwind CSS.</p>
+    </footer>
+
+    <!-- JavaScript for Animations and Smooth Scrolling -->
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Intersection Observer for fade-in effect on scroll
+        const faders = document.querySelectorAll('.fade-in-on-scroll');
+        const appearOptions = {
+            threshold: 0.1, // Trigger when 10% of the element is visible
+            rootMargin: "0px 0px -50px 0px"
+        };
+        const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                }
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            });
+        }, appearOptions);
+
+        faders.forEach(fader => {
+            appearOnScroll.observe(fader);
+        });
+
+        // Mouse light effect
+        document.body.addEventListener('mousemove', (e) => {
+            const light = document.getElementById('mouse-light');
+            const x = e.clientX;
+            const y = e.clientY;
+            light.style.setProperty('--x', `${x}px`);
+            light.style.setProperty('--y', `${y}px`);
+        });
+    </script>
+</body>
+</html>
